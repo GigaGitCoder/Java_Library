@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header">
+
+    <link th:href="@{/css/layout/header.css}" rel="stylesheet">
+
+    <div class="main-header">
+        <a th:href="@{/}" class="header-logo">
+            <span>📚</span>
+            <span>Библиотека книг</span>
+        </a>
+
+        <nav class="header-nav" id="headerNav">
+
+        </nav>
+    </div>
+
+    <script th:src="@{/js/layout/header.js}"></script>
+
+
+
+
+</header>
+</body>
+</html>

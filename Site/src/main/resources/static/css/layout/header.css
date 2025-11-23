@@ -1,0 +1,106 @@
+
+.main-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.header-logo:hover {
+    transform: scale(1.05);
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-user-info {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-btn {
+    padding: 10px 24px;
+    border: 2px solid white;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.header-btn-login {
+    background: transparent;
+    color: white;
+}
+
+.header-btn-login:hover {
+    background: white;
+    color: #667eea;
+}
+
+.header-btn-register {
+    background: white;
+    color: #667eea;
+}
+
+.header-btn-register:hover {
+    background: transparent;
+    color: white;
+}
+
+.header-btn-admin {
+    background: #ffc107;
+    color: #333;
+    border: 2px solid #ffc107;
+}
+
+.header-btn-admin:hover {
+    background: #ffb300;
+    border-color: #ffb300;
+}
+
+.header-btn-logout {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+}
+
+.header-btn-logout:hover {
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+.admin-badge {
+    background: #ffc107;
+    color: #333;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 8px;
+}

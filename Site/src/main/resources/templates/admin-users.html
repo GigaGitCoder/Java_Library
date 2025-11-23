@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Управление пользователями - Админ-панель</title>
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+    <link th:href="@{/css/admin/admin-users.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<div id="accessDenied" style="display: none;">
+    <div class="access-denied">
+        <h2>🚫 Доступ запрещён</h2>
+        <p>У вас нет прав для просмотра этой страницы.</p>
+        <p>Только администраторы могут управлять пользователями.</p>
+        <a href="/" class="btn-action">← Вернуться на главную</a>
+    </div>
+</div>
+
+
+<div id="adminContent">
+    <div class="container">
+        <div class="page-header">
+            <h1>👥 Управление пользователями</h1>
+            <div class="header-actions">
+                <button class="btn btn-admin" onclick="openRegisterAdminModal()">⚙️ Зарегистрировать админа</button>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="searchNickname" placeholder="Поиск по nickname">
+            <input type="text" id="searchEmail" placeholder="Поиск по email">
+            <select id="searchRole">
+                <option value="">Все роли</option>
+                <option value="ADMIN">Администратор</option>
+                <option value="USER">Пользователь</option>
+            </select>
+            <button class="btn btn-primary" onclick="searchUsers()">Поиск</button>
+            <button class="btn btn-secondary" onclick="resetSearch()">Сбросить</button>
+        </div>
+
+        <div class="table-container">
+            <div id="loadingUsers" class="loading">Загрузка пользователей...</div>
+            <table id="usersTable" style="display: none;">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nickname</th>
+                    <th>Email</th>
+                    <th>Роль</th>
+                    <th>Дата создания</th>
+                    <th>Действия</th>
+                </tr>
+                </thead>
+                <tbody id="usersTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Редактировать пользователя</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="userForm">
+                <input type="hidden" id="userId">
+
+                <div class="form-group">
+                    <label for="userNickname">Nickname *</label>
+                    <input type="text" id="userNickname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="userEmail">Email *</label>
+                    <input type="email" id="userEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="userPassword">Новый пароль (оставьте пустым, чтобы не менять)</label>
+                    <input type="password" id="userPassword">
+                    <div class="password-hint">Минимум 6 символов</div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Отмена</button>
+                    <button type="submit" class="btn btn-success">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ Зарегистрировать администратора</h2>
+                <span class="close" onclick="closeAdminModal()">&times;</span>
+            </div>
+            <form id="adminForm">
+                <div class="form-group">
+                    <label for="adminNickname">Nickname *</label>
+                    <input type="text" id="adminNickname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminEmail">Email *</label>
+                    <input type="email" id="adminEmail" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">Пароль *</label>
+                    <input type="password" id="adminPassword" required>
+                    <div class="password-hint">Минимум 6 символов</div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeAdminModal()">Отмена</button>
+                    <button type="submit" class="btn btn-success">Зарегистрировать</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="notification" class="notification"></div>
+
+
+<script th:src="@{/js/common/utils.js}"></script>
+<script th:src="@{/js/common/auth-guard.js}"></script>
+<script th:src="@{/js/admin/admin-users.js}"></script>
+
+</body>
+</html>

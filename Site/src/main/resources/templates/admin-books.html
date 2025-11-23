@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление книгами - Админ-панель</title>
+
+    <link th:href="@{/css/common.css}" rel="stylesheet">
+    <link th:href="@{/css/admin/admin-books.css}" rel="stylesheet">
+
+</head>
+<body>
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<div id="accessDenied" style="display: none;">
+    <div class="access-denied">
+        <h2>🚫 Доступ запрещён</h2>
+        <p>У вас нет прав для просмотра этой страницы.</p>
+        <p>Только администраторы могут управлять книгами.</p>
+        <a href="/" class="btn-action">← Вернуться на главную</a>
+    </div>
+</div>
+
+
+<div id="adminContent">
+    <div class="container">
+        <div class="page-header">
+            <h1>📚 Управление книгами</h1>
+            <button class="btn btn-primary" onclick="openCreateModal()">+ Добавить книгу</button>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="searchTitle" placeholder="Поиск по названию">
+            <input type="text" id="searchAuthor" placeholder="Поиск по автору">
+            <input type="text" id="searchGenre" placeholder="Поиск по жанру">
+            <input type="date" id="searchMinDate" placeholder="От даты">
+            <input type="date" id="searchMaxDate" placeholder="До даты">
+            <button class="btn btn-primary" onclick="searchBooks()">Поиск</button>
+            <button class="btn btn-secondary" onclick="resetSearch()">Сбросить</button>
+        </div>
+
+        <div class="table-container">
+            <div id="loadingBooks" class="loading">Загрузка книг...</div>
+            <table id="booksTable" style="display: none;">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Автор</th>
+                    <th>Жанр</th>
+                    <th>Дата выхода</th>
+                    <th>Описание</th>
+                    <th>Ссылка на файл</th>
+                    <th>Действия</th>
+                </tr>
+                </thead>
+                <tbody id="booksTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="bookModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Добавить книгу</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="bookForm">
+                <input type="hidden" id="bookId">
+
+                <div class="form-group">
+                    <label for="bookTitle">Название *</label>
+                    <input type="text" id="bookTitle" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookAuthor">Автор *</label>
+                    <input type="text" id="bookAuthor" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookGenre">Жанр *</label>
+                    <input type="text" id="bookGenre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookDate">Дата выхода *</label>
+                    <input type="date" id="bookDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookDescription">Описание *</label>
+                    <textarea id="bookDescription" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookFileLink">Ссылка на файл *</label>
+                    <input type="url" id="bookFileLink" required>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Отмена</button>
+                    <button type="submit" class="btn btn-success">Сохранить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="notification" class="notification"></div>
+
+<script th:src="@{/js/common/utils.js}"></script>
+<script th:src="@{/js/common/auth-guard.js}"></script>
+<script th:src="@{/js/admin/admin-books.js}"></script>
+
+</body>
+</html>
