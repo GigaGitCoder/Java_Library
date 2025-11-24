@@ -37,7 +37,7 @@ cd JavaLibrary
 
 ./start.sh
 ```
-`./stop.sh/` для выключения.
+`./stop.sh/` for shutdown.
   
 - Windows:
 ```cmd
@@ -49,4 +49,13 @@ start setup-build.ps1
 
 start start.ps1
 ```
-`start stop.ps1` для выключения.
+`start stop.ps1` for shutdown.
+
+# Notes:
+
+When used in real projects, it is worth changing some values before launching/deploying the project:
+- jwt secret in './user-service/'.
+- postgres auth credentials in 'docker-compose.yml' for 'user-service' and 'book-service'.
+- also you can change ports for your needs in any of 'docker-compose.yml' files.
+
+Only the site's port ('8091' default) should remain open during the project. The remaining ports should be refused to users.
