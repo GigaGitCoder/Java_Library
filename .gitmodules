@@ -4,3 +4,6 @@
 [submodule "book-service"]
 	path = book-service
 	url = https://github.com/GigaGitCoder/JavaBookService
+[submodule "user-service"]
+	path = user-service
+	url = https://github.com/GigaGitCoder/JavaUserService
