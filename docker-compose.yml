@@ -1,0 +1,4 @@
+include:
+  - path: ./user-service/docker-compose.yml
+  - path: ./book-service/docker-compose.yml
+  - path: ./site/docker-compose.yml
