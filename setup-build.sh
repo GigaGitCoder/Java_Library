@@ -33,4 +33,4 @@ build_maven_project "book-service"
 build_maven_project "site"
 build_maven_project "user-service"
 
-echo_info "Setup build is over"
+echo_info "Setup build is over!"

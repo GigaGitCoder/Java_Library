@@ -38,4 +38,6 @@ Build-MavenProject "book-service"
 Build-MavenProject "site"
 Build-MavenProject "user-service"
 
-Write-Host "Setup build is over"
+Write-Host "Setup build is over!"
+
+Start-Sleep -Seconds 5
