@@ -51,7 +51,7 @@ start start.ps1
 ```
 `start stop.ps1` for shutdown.
 
-After starting a project you should make your first admin by POST method 'api/admin/registerAsAdmin/'
+- After starting a project you should make your first admin by POST method 'api/admin/registerAsAdmin/'
 ```json
 {
     "nickname": "nickname",
