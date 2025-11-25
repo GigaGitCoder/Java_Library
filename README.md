@@ -51,7 +51,7 @@ start start.ps1
 ```
 `start stop.ps1` for shutdown.
 
-- After starting a project you should make your first admin by POST method 'api/admin/registerAsAdmin/'
+- After starting a project you should make your first admin by POST-request 'api/admin/registerAsAdmin/'
 ```json
 {
     "nickname": "nickname",
@@ -63,8 +63,13 @@ start start.ps1
 # Notes:
 
 When used in real projects, it is worth changing some values before launching/deploying the project:
-- jwt secret in './user-service/'.
-- postgres auth credentials in 'docker-compose.yml' for 'user-service' and 'book-service'.
-- also you can change ports for your needs in any of 'docker-compose.yml' files.
+- jwt secret key in `./user-service/`.
+- postgres auth credentials in `docker-compose.yml` for `user-service` and `book-service`.
+- also you can change ports for your needs in any of `docker-compose.yml` files.
 
-Only the site's port ('8091' default) should remain open during the project. The remaining ports should be refused to users.
+Only the site's port (`8091` default) should remain open during the project. The remaining ports should be refused to users.
+
+# Localizations
+
+- [Русский](./README-files/README_RU.md)
+- [中文](./README-files/README_ZH.md)
