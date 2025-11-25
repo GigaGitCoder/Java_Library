@@ -51,6 +51,15 @@ start start.ps1
 ```
 `start stop.ps1` for shutdown.
 
+After starting a project you should make your first admin by POST method 'api/admin/registerAsAdmin/'
+```json
+{
+    "nickname": "nickname",
+    "email": "email",
+    "password": "password"
+}
+```
+
 # Notes:
 
 When used in real projects, it is worth changing some values before launching/deploying the project:
