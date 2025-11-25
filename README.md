@@ -18,7 +18,7 @@ JavaLibrary is a Java Spring-based library project featuring a fully automated a
 - [Download for Windows – ARM64](https://desktop.docker.com/win/main/arm64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 - [Download for Linux](https://docs.docker.com/desktop/linux/install/)
 
-# Gitmodules
+# Gitmodules with Documentations
 
 - [JavaBookService](https://github.com/GigaGitCoder/JavaBookService)
 - [JavaUserService](https://github.com/GigaGitCoder/JavaUserService)
